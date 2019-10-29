@@ -1,0 +1,36 @@
+/******************************************************************************
+
+                  Factorial of a number using recursion.
+
+*******************************************************************************/
+
+#include <stdio.h>
+
+unsigned long int fact(int);                            // Factorial function declaration
+
+int main(void)
+{
+    int n;
+    printf("Enter number whose factorial has to be calculated\n");
+    scanf("%d",&n);
+    printf("The factorial of %d is %ul",n,fact(n));     //call the funtion from printf
+    return 0;
+}
+
+/********************************************************************************
+
+             Recursive function call for factorial implementation
+             
+ ********************************************************************************/
+
+
+unsigned long int fact(int n)
+{
+    unsigned int f=0;
+    if (n==1)
+    {
+        return 1;
+    }
+    f=n*fact(n-1);
+    return f;
+}
