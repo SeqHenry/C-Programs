@@ -1,0 +1,58 @@
+/******************************************************************************
+
+                Decimal to (Binary,Octal,Hexadecimal) conversion
+
+*******************************************************************************/
+
+#include <stdio.h>
+
+void convert(int,int);
+
+int main()
+{
+    int num;
+    printf("Enter the decimal number to convert in binary,octal,hexadecimal\n");
+    scanf("%d",&num);                              //Take a decimal number from user
+    
+    printf("The decimal to binary conversion is:");
+    convert(num,2);                                //call binary base converson function
+    printf("\n");                                  //Goto next inline
+    
+    printf("The decimal to octal conversion is:");
+    convert(num,8);                                //call octal base converson function
+    printf("\n");                                  //Goto next inline
+    
+    printf("The decimal to hexadecimal conversion is:");
+    convert(num,16);                               //call hexadecimal base converson function
+    printf("\n");                                  //Goto next inline
+
+    return 0;
+}
+
+/******************************************************************************
+
+        Decimal to (Binary/Octal/Hexadecimal) conversion function block
+
+*******************************************************************************/
+
+void convert(int num,int base)
+{
+    int rem=num%base;
+    
+    if (num==0)
+    {
+        return;
+        
+    }
+    
+    convert(num/base,base);
+    if (rem<10)
+    {
+        printf("%d",rem);
+    }
+    else
+    {
+        printf("%d",rem-10+'A');
+    }
+    
+}
