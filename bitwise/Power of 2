@@ -1,0 +1,25 @@
+/******************************************************************************
+              
+              Program to find whether a number is exact power 2
+
+*******************************************************************************/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int x;
+    printf("Enter the number :\n");
+    scanf("%d",&x);
+    /* If number is exact power of two then it will have 1-bit in one of the bit position*/
+    if((x&(x-1))==0)
+    {
+        printf("%d is a power of 2\n",x);
+    }
+    else
+    {
+        printf("%d is not a power of 2\n",x);
+    }
+    
+    return 0;
+}
