@@ -1,0 +1,25 @@
+/******************************************************************************
+              
+              Program to find whether a number is even or odd
+
+*******************************************************************************/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int x,mask;
+    printf("Enter the number :\n");
+    scanf("%d",&x);
+    mask=0x01;
+    if((x&mask)==0)
+    {
+        printf("%d is even number\n",x);
+    }
+    else
+    {
+        printf("%d is odd number\n",x);
+    }
+    
+    return 0;
+}
