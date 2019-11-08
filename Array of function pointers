@@ -1,0 +1,45 @@
+/******************************************************************************* 
+                          
+                           Array of function pointers
+                           
+*******************************************************************************/
+
+#include <stdio.h>
+float add(float,int);                               /*Declaration of function*/
+float sub(float,int);
+float mul(float,int);
+float divi(float,int);
+int main()
+{
+    int i,b;
+    float a;
+    float (*fp[])(float,int)={add,sub,mul,divi};    /*Declare an array of function pointers*/
+    char *operation[]={"add","sub","mul","divi"};
+    printf("Enter a float and an integer\n");
+    scanf("%f %d",&a,&b);
+    for(i=0;i<4;i++)
+    {
+        printf("%s:%f\n",operation[i],(*fp[i])(a,b));
+    }
+    return 0;
+}
+
+float add(float a,int b)
+{
+    return a+b;
+}
+
+float sub(float a,int b)
+{
+    return a-b;
+}
+
+float mul(float a,int b)
+{
+    return a*b;
+}
+
+float divi(float a,int b)
+{
+    return a/b;
+}
