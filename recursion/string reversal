@@ -1,0 +1,29 @@
+/******************************************************************************
+
+                        String reversal using recursion
+
+*******************************************************************************/
+
+#include <stdio.h>
+#include<string.h>
+void revstr(char*);
+
+int main()
+{
+    char str[40];
+    printf("Enter string\n");
+    gets(str);
+    revstr(str);
+    return 0;
+}
+/*user string passed to the below function for printing in reverse sequence*/
+void revstr(char *str)
+{
+    if(*str=='\0')
+    {
+        return;
+    }
+    str++;
+    revstr(str);
+    printf("%c",*str);
+}
