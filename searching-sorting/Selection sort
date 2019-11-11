@@ -1,0 +1,50 @@
+/******************************************************************************
+
+                            Selection sort of an array
+
+*******************************************************************************/
+
+#include <stdio.h>
+#define SIZE 5
+void selectionSort(int ar[],int n);
+
+int main()
+{
+    int ar[SIZE],n;
+    printf("Enter the number of elements\n");
+    scanf("%d",&n);
+    printf("Enter the elements in array\n");
+    for(int i=0;i<n;i++)
+    {
+        scanf("%d",ar+i);
+    }
+    selectionSort(ar,n);
+    printf("The sorted array is\n");
+    for(int k=0;k<n;k++)
+    {
+        printf("%d",ar[k]);
+    }
+    return 0;
+}
+
+void selectionSort(int *ar,int n)
+
+{
+    int temp;
+    for(int i=0;i<n-1;i++)
+    {
+        int min=i;
+        for(int j=i+1;j<n;j++)
+        {
+            if(ar[min]>ar[j])
+            {
+                min=j;
+            }
+        }
+        temp=ar[i];
+        ar[i]=ar[min];
+        ar[min]=temp;
+    }
+    
+    
+}
