@@ -1,0 +1,48 @@
+/******************************************************************************
+
+                            Bubble sort of an array
+
+*******************************************************************************/
+
+#include <stdio.h>
+#define SIZE 5
+void bubbleSort(int ar[],int n);
+
+int main()
+{
+    int ar[SIZE],n;
+    printf("Enter the number of elements\n");
+    scanf("%d",&n);
+    printf("Enter the elements in array\n");
+    for(int i=0;i<n;i++)
+    {
+        scanf("%d",ar+i);
+    }
+    bubbleSort(ar,n);
+    printf("The sorted array is\n");
+    for(int k=0;k<n;k++)
+    {
+        printf("%d",ar[k]);
+    }
+    return 0;
+}
+
+void bubbleSort(int *ar,int n)
+
+{
+    int temp;
+    for(int j=0;j<n;j++)
+    {
+        for(int i=0;i<n-j;i++)
+        {
+            if(ar[i]>ar[i+1])
+            {
+                temp=ar[i];
+                ar[i]=ar[i+1];
+                ar[i+1]=temp;
+            }
+        }
+    }
+}
+    
+    
