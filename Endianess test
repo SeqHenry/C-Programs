@@ -1,0 +1,30 @@
+/******************************************************************************
+
+                            To check for endianess
+
+*******************************************************************************/
+
+#include <stdio.h>
+#define LITTLE_ENDIAN 1
+#define BIG_ENDIAN 0
+
+int testEndian(void);
+int main()
+{
+    int endianess;
+    endianess=testEndian();
+    if(endianess==1)
+    {
+        printf("System is LITTLE_ENDIAN\n");
+    }
+    else
+        printf("System is BIG_ENDIAN\n");
+    return 0;
+}
+
+int testEndian(void)
+{
+    int  word=0x0001;
+    char *byte=(char*)&word;
+    return(byte[0]?LITTLE_ENDIAN:BIG_ENDIAN);
+}
