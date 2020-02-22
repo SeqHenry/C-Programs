@@ -4,6 +4,7 @@
 
 *******************************************************************************/
 
+/**********************Using MACRO definitions to check Endianess**************/
 #include <stdio.h>
 #define LITTLE_ENDIAN 1
 #define BIG_ENDIAN 0
@@ -28,3 +29,43 @@ int testEndian(void)
     char *byte=(char*)&word;
     return(byte[0]?LITTLE_ENDIAN:BIG_ENDIAN);
 }
+
+/****************Another way using hex number and using functions************/
+
+#include <stdio.h>
+void show_mem_rep(char * start,int n)
+{
+    for(int i=0;i<n;i++)
+    {
+        printf("%x",start[i]);
+    }
+}
+int main()
+{
+    int i=0x12345678;
+    show_mem_rep((char*)&i,sizeof(i));
+    return 0;
+}
+
+
+/***************Third way -using union**************************************/
+
+
+#include <stdio.h>
+union{
+    int i;
+    char c[sizeof(int)];
+}x;
+
+int main()
+{
+    x.i=1;
+    if(x.c[0]==1){
+        printf("Little-Endian\n");
+    }
+    else
+    printf("Big Endian");
+
+    return 0;
+}
+
