@@ -1,0 +1,30 @@
+/******************************************************************************
+
+                        Decimal to Binary conversion.
+
+*******************************************************************************/
+
+#include <stdio.h>
+
+long int DecimalToBinary(int);
+
+int main()
+{
+    int num;
+    printf("Enter the decimal number to be converted to binary\n");
+    scanf("%d",&num);
+    printf("%d=decimalnumber,%ld=binary number \n",num,DecimalToBinary(num));
+    return 0;
+}
+
+long int DecimalToBinary(int num)
+{
+    int a=1,rem,bin=0;
+    while(num>0){
+       rem=num%2;
+        bin+=rem*a;
+        a*=10;  
+        num/=2; 
+    }
+    return bin;
+}
