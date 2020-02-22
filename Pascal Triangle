@@ -1,0 +1,43 @@
+/******************************************************************************
+
+                        Pascal Triangle formation.
+
+*******************************************************************************/
+
+#include <stdio.h>
+
+long pas(int,int);
+long fact(int);
+
+int main()
+{
+    int rows;
+    printf("Enter the number of rows to be displayed in pascal triangle\n");
+    scanf("%d",&rows);
+    for(int i=0;i<rows;i++)
+    {
+        for(int j=0;j<=i;j++)
+            printf("%5ld",pas(i,j));
+        printf("\n");
+    }
+    return 0;
+}
+
+
+long pas(int i,int j)
+{
+    long ans;
+    ans =fact(i)/(fact(j)*fact(i-j));
+    return ans;
+}
+
+long fact(int num)
+{
+    int factorial=0;
+    if(num==0)
+    {
+        return 1;
+    }
+    return num*fact(num-1);
+    
+}
