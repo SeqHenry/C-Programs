@@ -1,0 +1,63 @@
+ /******************************************************************************
+
+            Using Floyd cycle to detectLoop in Linked list
+
+*******************************************************************************/
+
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node{      //Create a self referential pointer
+    int data;
+    struct node * next;
+};
+
+//Push function block 
+void push(struct node** head,int new_data)
+{
+    struct node * new_node=(struct node*)malloc (sizeof(struct node));
+    new_node->data=new_data;
+    new_node->next= *head;
+    
+    *head=new_node;
+    
+}
+
+//function to detect Loop in DS
+int detectLoop (struct node * list)
+{
+    struct node *slow_p=list;
+    struct node *fast_p=list;
+    
+    while(slow_p&&fast_p&&fast_p->next)
+    {
+        slow_p=slow_p->next;
+        fast_p=fast_p->next->next;
+        
+        if(slow_p==fast_p)
+        {
+            printf("Loop found \n");
+            return 1;
+        }
+    }
+    return 0;
+}
+
+
+int main()
+{
+    struct node * head=NULL;
+    push(&head,20);
+     push(&head,30);
+      push(&head,40);
+       push(&head,50);
+        push(&head,60);
+        
+        /* Create a loop in ds */
+        
+        head->next->next->next->next->next=head;
+        
+        detectLoop(head);
+
+    return 0;
+}
