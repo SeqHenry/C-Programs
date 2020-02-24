@@ -1,0 +1,22 @@
+/******************************************************************************
+
+                    Code to indicate size of structure.
+
+*******************************************************************************/
+
+#include <stdio.h>
+#include <stdlib.h>
+
+struct ABC{
+    int a;
+    char b;
+    float c;
+};
+
+int main()
+{
+    struct ABC *ptr =(struct ABC*)0;
+    ptr++;
+    printf("Size of structure ABC is %d bytes\n",ptr);
+    return 0;
+}
